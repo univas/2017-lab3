@@ -28,9 +28,6 @@ public class TestCalculator {
 		calc.multiply(4);
 		assertEquals(12, calc.result, 0.01);
 		
-		calc.divide(6);
-		assertEquals(2, calc.result, 0.01);
-		
 		calc.clear();
 		assertEquals(0, calc.result, 0.01);
 		
@@ -38,7 +35,18 @@ public class TestCalculator {
 
 		otherCalc.sum(50);
 		otherCalc.multiply(20);
-		assertEquals(1000, calc.result, 0.01);
+		assertEquals(1000, otherCalc.result, 0.01);
 	}
 
+	@Test
+	public void testCalcDiv() {
+		CalculatorPlus calc = new CalculatorPlus();
+		calc.sum(300);
+
+		assertTrue(calc.divide(6));//o divide tem que retornar true
+		assertEquals(50, calc.result, 0.01);
+		
+		assertFalse(calc.divide(0));//o divide tem que retornar false
+		assertEquals(50, calc.result, 0.01);
+	}
 }
