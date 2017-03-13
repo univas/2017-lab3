@@ -22,7 +22,11 @@ public class CalculatorPlus {
 		result *= value;
 	}
 	
-	void divide(int value) {
+	boolean divide(int value) {
+		if(value == 0) {
+			return false;
+		}
 		result /= value;
+		return true;
 	}
 }
