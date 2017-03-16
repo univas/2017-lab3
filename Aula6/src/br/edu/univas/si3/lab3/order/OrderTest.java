@@ -11,8 +11,7 @@ public class OrderTest {
 
 		Order o1 = new Order();
 		assertEquals(0, o1.calculateTotalValue(), 0.01);
-		
-		
+				
 		Item i1 = new Item();
 		i1.amount = 2;
 		i1.unitValue = 7;
@@ -26,6 +25,19 @@ public class OrderTest {
 		
 		o1.addItem(i2);
 		assertEquals(26, o1.calculateTotalValue(), 0.01);
+	}
+	
+	@Test
+	public void testCheckAddItem() {
+
+		Order o1 = new Order();
+		Item i1 = new Item();
+		i1.code = 5;
+		assertEquals(0, o1.items.size());
+		
+		o1.addItem(i1);
+		assertEquals(1, o1.items.size());
+		assertEquals(5, o1.items.get(0).code);
 	}
 
 }
