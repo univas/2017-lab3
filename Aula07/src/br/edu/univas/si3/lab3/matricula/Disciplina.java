@@ -14,18 +14,35 @@ public class Disciplina {
 	}
 	
 	public void adicionarInscrito(Matricula m){
-		//TODO: implementar
+		inscritos.add(m);
 	}
 	
 	public ArrayList<Aluno> listarAprovados() {
-		return null;//TODO: implementar
+		ArrayList<Aluno> aprovados = new ArrayList<Aluno>();
+		
+		for(Matricula mat : inscritos) {
+			if(mat.calcularMedia() >= 60f) {
+				Aluno aluno = mat.getAluno();
+				aprovados.add(aluno);
+			}
+		}
+		return aprovados;
 	}
 	
 	public int getQuantidadeDeMatriculados() {
-		return 0;//TODO: implementar
+		return inscritos.size();
 	}
 	
 	public float calcularMedia() {
-		return 0f;//TODO: implementar
+		float soma = 0f;
+		for(int i = 0; i < inscritos.size(); i++) {
+			Matricula mat = inscritos.get(i);
+			soma += mat.calcularMedia();
+		}
+		return soma / inscritos.size();
+	}
+	
+	public int getCargaHoraria() {
+		return cargaHoraria;
 	}
 }

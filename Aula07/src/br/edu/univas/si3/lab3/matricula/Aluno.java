@@ -14,15 +14,31 @@ public class Aluno {
 	}
 	
 	public boolean estaAprovado(Disciplina d) {
-		return false;//TODO: implementar
+		for(Matricula mat : matriculas) {
+			Disciplina disc = mat.getDisciplina();
+			if(disc == d) {//verifica se é a mesma referência dos objetos
+				
+				if(mat.calcularMedia() >= 60) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 	
 	public void matricular(Disciplina d) {
-		//TODO: implementar
+		Matricula novaMatricula = new Matricula(this, d);
+		matriculas.add(novaMatricula);
 	}
 	
 	public int getCargaHoraria() {
-		return 0;//TODO: implementar
+		int soma = 0;
+		for(int i = 0; i < matriculas.size(); i++) {
+			Matricula mat = matriculas.get(i);
+			Disciplina disc = mat.getDisciplina();
+			soma += disc.getCargaHoraria();
+		}
+		return soma;
 	}
 	
 }

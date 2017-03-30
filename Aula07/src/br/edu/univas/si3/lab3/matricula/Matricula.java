@@ -10,6 +10,8 @@ public class Matricula {
 	public Matricula(Aluno aluno, Disciplina disciplina) {
 		this.aluno = aluno;
 		this.disciplina = disciplina;
+		
+		disciplina.adicionarInscrito(this);
 	}
 	
 	public void inserirNota(int nota) {
