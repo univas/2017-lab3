@@ -12,6 +12,8 @@ public class ContaPoupanca extends Conta {
 	
 	public void atualizarSaldo() {
 		System.out.println("atualizarSaldo de ContaPoupanca");
+		
+		float acrescimo = super.getSaldo() * taxaDeJuros;
+		super.depositar(acrescimo);
 	}
-	
 }

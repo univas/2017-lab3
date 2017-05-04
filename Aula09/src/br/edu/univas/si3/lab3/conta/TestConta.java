@@ -6,11 +6,11 @@ import org.junit.Test;
 
 public class TestConta {
 
-	@Test
+//	@Test
 	public void testChamarMetodos() {
 		
-		Conta c1 = new Conta(11, "C11");
-		Conta c2 = new Conta(12, "C12");
+//		Conta c1 = new Conta(11, "C11");
+//		Conta c2 = new Conta(12, "C12");
 		ContaCorrente cc = new ContaCorrente(2, "c2", 5);
 		ContaPoupanca cp = new ContaPoupanca(3, "C3", 1);
 		
@@ -18,9 +18,9 @@ public class TestConta {
 //		c1.sacar(5);
 //		c1.getNumero();
 //		c1.getSaldo();
-		c1.transferirPara(c2, 3);
+//		c1.transferirPara(c2, 3);
 		
-		c2.transferirPara(c1, 4);
+//		c2.transferirPara(c1, 4);
 		
 //		cc.depositar(100);
 //		cc.sacar(500);
@@ -35,6 +35,23 @@ public class TestConta {
 //		cp.atualizarSaldo();
 		
 		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testGerenteContas() {
+//		Conta c1 = new Conta(11, "C11");
+//		Conta c2 = new Conta(12, "C12");
+		ContaCorrente cc = new ContaCorrente(2, "c2", 5);
+		ContaPoupanca cp = new ContaPoupanca(3, "C3", 1);
+
+		GerenteContas ger = new GerenteContas();
+		
+//		ger.acidionar(c1);
+//		ger.acidionar(c2);
+		ger.acidionar(cc);
+		ger.acidionar(cp);
+		
+		ger.atualizarTodasContas();
 	}
 
 }

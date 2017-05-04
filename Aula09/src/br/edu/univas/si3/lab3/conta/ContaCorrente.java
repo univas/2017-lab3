@@ -16,10 +16,7 @@ public class ContaCorrente extends Conta {
 	
 	public void atualizarSaldo() {
 		System.out.println("atualizarSaldo de ContaCorrente");
-
-//		float valorDoSaldo = super.getSaldo();
-//		valorDoSaldo -= manutencaoMensal;
-//		
-//		saldo = valorDoSaldo;
+		
+		super.sacar(manutencaoMensal);
 	}
 }
