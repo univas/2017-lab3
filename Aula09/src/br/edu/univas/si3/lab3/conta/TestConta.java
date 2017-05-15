@@ -38,8 +38,8 @@ public class TestConta {
 	}
 	
 	@Test
-	public void testGerenteContas() {
-//		Conta c1 = new Conta(11, "C11");
+	public void testConta() {
+//		Conta c1 = new Conta(11, "C11");//não pode mais pois a Conta tornou-se abstrata
 //		Conta c2 = new Conta(12, "C12");
 		ContaCorrente cc = new ContaCorrente(2, "c2", 5);
 		ContaPoupanca cp = new ContaPoupanca(3, "C3", 1);
@@ -54,4 +54,8 @@ public class TestConta {
 		ger.atualizarTodasContas();
 	}
 
+	@Test
+	public void testManutencao() {
+		//TODO: tarefa: implementar.
+	}
 }

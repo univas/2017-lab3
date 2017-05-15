@@ -3,7 +3,7 @@ package br.edu.univas.si3.lab3.conta;
 import java.util.ArrayList;
 import java.util.Date;
 
-public abstract class Conta {
+public abstract class Conta implements Manutencao {
 	
 	private int numero;
 	private String cliente;
@@ -16,7 +16,7 @@ public abstract class Conta {
 		this.cliente = cliente;
 	}
 
-	public boolean sacar(float valor) {
+	public final boolean sacar(float valor) {
 //		System.out.println("sacar: " + numero);
 		
 		if(saldo < valor) {

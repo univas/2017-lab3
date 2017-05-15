@@ -16,4 +16,10 @@ public class ContaPoupanca extends Conta {
 		float acrescimo = super.getSaldo() * taxaDeJuros;
 		super.depositar(acrescimo);
 	}
+	
+	@Override
+	public void manter() {
+		float acrescimo = super.getSaldo() * taxaDeJuros;
+		super.depositar(acrescimo);
+	}
 }

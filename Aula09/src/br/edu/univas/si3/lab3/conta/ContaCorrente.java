@@ -14,9 +14,16 @@ public class ContaCorrente extends Conta {
 		this.manutencaoMensal = manutMensal;
 	}
 	
+	@Override
 	public void atualizarSaldo() {
 		System.out.println("atualizarSaldo de ContaCorrente");
 		
 		super.sacar(manutencaoMensal);
 	}
+	
+	@Override
+	public void manter() {
+		super.sacar(manutencaoMensal);
+	}
+	
 }

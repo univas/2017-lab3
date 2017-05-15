@@ -6,6 +6,19 @@ public class GerenteContas {
 
 	private ArrayList<Conta> contas = new ArrayList<Conta>();
 	
+	private ArrayList<Manutencao> contasManutencao = 
+			new ArrayList<Manutencao>();
+	
+	public void addConta(Manutencao c) {
+		contasManutencao.add(c);
+	}
+	
+	public void manterTodasAsContas() {
+		for (Manutencao contaManutencao : contasManutencao) {
+			contaManutencao.manter();
+		}
+	}
+	
 	public void acidionar(Conta conta) {
 		contas.add(conta);
 		
