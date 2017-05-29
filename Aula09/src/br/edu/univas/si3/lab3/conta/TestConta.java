@@ -58,4 +58,18 @@ public class TestConta {
 	public void testManutencao() {
 		//TODO: tarefa: implementar.
 	}
+
+	@Test
+	public void testSacar() {
+		
+		ContaCorrente cc = new ContaCorrente(2, "c2", 5);
+		cc.depositar(100);
+		try {
+			cc.sacar(50);
+		} catch(SaldoInsuficienteException e) {
+			System.out.println("Erro ao sacar: " + e);
+		}
+		
+		//TODO: tarefa: implementar o restante.
+	}
 }

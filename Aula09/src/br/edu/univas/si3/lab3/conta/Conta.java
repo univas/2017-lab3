@@ -16,15 +16,15 @@ public abstract class Conta implements Manutencao {
 		this.cliente = cliente;
 	}
 
-	public final boolean sacar(float valor) {
+	public final void sacar(float valor) throws SaldoInsuficienteException {
 //		System.out.println("sacar: " + numero);
 		
 		if(saldo < valor) {
-			return false;
+			throw new SaldoInsuficienteException(
+					"Saldo insuficiente para sacar " + valor);
 		}		
 		saldo -= valor;
 		criarMovimento("sacar", valor);
-		return true;
 	}
 	
 	public boolean depositar(float valor) {
@@ -42,15 +42,13 @@ public abstract class Conta implements Manutencao {
 		movimentos.add(mov);
 	}
 	
-	public boolean transferirPara(Conta contaDestino, float valor) {
+	public void transferirPara(Conta contaDestino, float valor) 
+			throws SaldoInsuficienteException {
 		System.out.println("transferirPara: " + numero);
 		
 //		boolean sacouComSucesso = this.sacar(valor);
-		if(this.sacar(valor)) {
-			contaDestino.depositar(valor);
-			return true;
-		}
-		return false;
+		this.sacar(valor);
+		contaDestino.depositar(valor);
 	}
 	
 	public ArrayList<Movimento> getUltimosMovimentos(int qtd) {

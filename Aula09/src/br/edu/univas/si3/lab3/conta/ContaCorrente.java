@@ -17,12 +17,23 @@ public class ContaCorrente extends Conta {
 	@Override
 	public void atualizarSaldo() {
 		System.out.println("atualizarSaldo de ContaCorrente");
-		
-		super.sacar(manutencaoMensal);
+			
+		try {
+			super.sacar(manutencaoMensal);
+		} catch (SaldoInsuficienteException e) {
+
+			try {
+				super.sacar(super.getSaldo());
+			} catch (SaldoInsuficienteException e1) {
+				System.out.println("Não pode acontecer isso!!!");
+				e1.printStackTrace();
+			}
+			
+		}
 	}
 	
 	@Override
-	public void manter() {
+	public void manter() throws SaldoInsuficienteException {
 		super.sacar(manutencaoMensal);
 	}
 	

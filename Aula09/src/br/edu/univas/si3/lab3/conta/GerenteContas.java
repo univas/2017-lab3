@@ -15,7 +15,12 @@ public class GerenteContas {
 	
 	public void manterTodasAsContas() {
 		for (Manutencao contaManutencao : contasManutencao) {
-			contaManutencao.manter();
+			//agora o manter lança exceção
+			try {
+				contaManutencao.manter();
+			} catch (SaldoInsuficienteException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
