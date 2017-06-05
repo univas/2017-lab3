@@ -63,7 +63,11 @@ public class TestConta {
 	public void testSacar() {
 		
 		ContaCorrente cc = new ContaCorrente(2, "c2", 5);
-		cc.depositar(100);
+		try {
+			cc.depositar(100);
+		} catch (ValorInvalidoException e1) {
+			fail("não era para chegar aqui");
+		}
 		try {
 			cc.sacar(50);
 		} catch(SaldoInsuficienteException e) {
@@ -71,5 +75,25 @@ public class TestConta {
 		}
 		
 		//TODO: tarefa: implementar o restante.
+	}
+
+	@Test
+	public void testDepositar() {
+		ContaCorrente cc = new ContaCorrente(2, "c2", 5);
+		assertEquals(0f, cc.getSaldo(), 0.01);
+		try {
+			cc.depositar(100);
+		} catch (ValorInvalidoException e) {
+			fail("Não era para dar esta exceção");
+		}
+		assertEquals(100f, cc.getSaldo(), 0.01);
+
+		try {
+			cc.depositar(-1);
+			fail("não era para chegar aqui");
+		} catch (ValorInvalidoException e) {
+			System.out.println("aqui era mesmo para dar exceção");
+		}
+		assertEquals(100f, cc.getSaldo(), 0.01);
 	}
 }

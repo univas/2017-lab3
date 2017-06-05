@@ -27,8 +27,11 @@ public abstract class Conta implements Manutencao {
 		criarMovimento("sacar", valor);
 	}
 	
-	public boolean depositar(float valor) {
+	public boolean depositar(float valor) throws ValorInvalidoException {
 //		System.out.println("depositar: " + numero);
+		if(valor <= 0) {
+			throw new ValorInvalidoException("O valor não pode ser negativo: " + valor);
+		}
 		saldo += valor;
 		criarMovimento("depositar", valor);
 		return true;
@@ -43,7 +46,7 @@ public abstract class Conta implements Manutencao {
 	}
 	
 	public void transferirPara(Conta contaDestino, float valor) 
-			throws SaldoInsuficienteException {
+			throws SaldoInsuficienteException, ValorInvalidoException {
 		System.out.println("transferirPara: " + numero);
 		
 //		boolean sacouComSucesso = this.sacar(valor);
